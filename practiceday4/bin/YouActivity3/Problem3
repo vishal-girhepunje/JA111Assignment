@@ -1,0 +1,162 @@
+### **Question-3**
+
+The Ryan tour and travel company is operating a speed boat and a motor boat
+ at a picnic spot. They Passenger may choose to ride in any one of them. 
+ Once boat is full then passenger has to wait for next round. The Ryan tour
+  and travel has hired Mr. Roshan for creating the program for the same. 
+  please help Roshan to complete the code
+  
+  package com.masai.assignment;
+public class MotorBoat{
+  private String motorBoatNumber;
+  private int capacity;
+  write parameterized constructor, getter & setter method
+}
+
+package com.masai.assignment;
+public class SpeedBoat {
+  private String speedBoatNumber;
+  private int capacity;
+  write parameterized constructor, getter & setter method
+}
+
+package com.masai.assignment;
+public class Passenger {
+  private String passengerId;
+  private String name;
+  private SpeedBoat speedBoat;
+  private MotorBoat motorBoat;
+  private static int passengerCounter;
+
+  public Passenger(String name) {
+    //code to generate passenger is PS001 and onwards...
+    //use passengerCounter for the same
+    //write code to set name
+  }
+
+  getter and setter method
+}
+
+package com.masai.assignment;
+public class BoatTicketIssue {
+  static boolean issueTicket(Passenger passenger, SpeedBoat speedBoat) {
+    //write code to allot speed boat to passenger it has vacant seat
+    //reduce total capacity of the boat by 1 after allocation
+    //if boat allocation it successful then return true; false otherwise
+  }
+
+static boolean issueTicket(Passenger passenger, MotorBoat motorBoat) {
+    //write code to allot motor boat to passenger it has vacant seat
+    //reduce total capacity of the boat by 1 after allocation
+    //if boat allocation it successful then return true; false otherwise
+  }
+}
+
+//Do not change this code
+package com.masai.assignment;
+import java.util.Scanner;
+public class MainBoat {
+  static void printTicketDetails(Passenger ps, MotorBoat mb, SpeedBoat sb) {
+    System.out.println("Passenger Id: " + ps.getPassengerId())
+    System.out.println("Name: " + ps.getName());
+    if(mb != null)
+      System.out.println("Motor Boat Number: " + ps.getMotorBoat().getMotorBoatNumber());
+    else
+      System.out.println("Speed Boat Number: " + ps.getSpeedBoat().getSpeedBoatNumber());
+}
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    //Create object of MotorBoat
+    MotorBoat mb = new MotorBoat("MB001");
+    //set the capacity to 5
+    mb.setCapacity(5);
+    //Create object of SpeedBoat
+    SpeedBoat sb = new SpeedBoat("SB001");
+    //set the capacity to 3
+    sb.setCapacity(3);
+    //Create 10 objects of passenger class one by one and take input also
+    int counter = 1;
+    Passenger ps = null;
+    do {
+      System.out.print("Enter name of passenger ");
+      ps = new Passenger(sc.next());
+      System.out.print("Enter 1 to take motor boat or 2 for speed boat ");
+      int choice = sc.nextInt();
+      if(choice == 1) {
+        //user has opted for Motor Boat
+        boolean isAlloted = BoatTicketIssue.issueTicket(ps, mb);
+        if(isAlloted == true) {
+          printTicketDetails(ps, mb, null);
+        }else {
+          System.out.println("No motor boat available.. Wait for next round");
+        }
+      }else if(choice == 2){
+        //user has opted for Speed Boat
+        boolean isAlloted = BoatTicketIssue.issueTicket(ps, sb);
+        if(isAlloted == true) {
+          printTicketDetails(ps, null, sb);
+        }else {
+          System.out.println("No speed boat available.. Wait for next round");
+        }
+      }
+      System.out.println();
+    }while(++counter <= 10);
+    sc.close();
+  }
+}
+
+output
+Enter name of passenger Aman
+Enter 1 to take motor boat or 2 for speed boat 1
+Passenger Id: PS1001
+Name: Aman
+Motor Boat Number: MB001
+Enter name of passenger Bhavya
+Enter 1 to take motor boat or 2 for speed boat 1
+Passenger Id: PS1002
+Name: Bhavya
+Motor Boat Number: MB001
+Enter name of passenger Chaitanya
+Enter 1 to take motor boat or 2 for speed boat 1
+Passenger Id: PS1003
+Name: Chaitanya
+Motor Boat Number: MB001
+
+Enter name of passenger Dheeraj
+Enter 1 to take motor boat or 2 for speed boat 1
+Passenger Id: PS1004
+Name: Dheeraj
+Motor Boat Number: MB001
+
+Enter name of passenger Ela
+Enter 1 to take motor boat or 2 for speed boat 1
+Passenger Id: PS1005
+Name: Ela
+Motor Boat Number: MB001
+
+Enter name of passenger Farman
+Enter 1 to take motor boat or 2 for speed boat 1
+No motor boat available.. Wait for next round
+
+Enter name of passenger Gunjan
+Enter 1 to take motor boat or 2 for speed boat 2
+Passenger Id: PS1007
+Name: Gunjan
+Speed Boat Number: SB001
+
+Enter name of passenger Harman
+Enter 1 to take motor boat or 2 for speed boat 2
+Passenger Id: PS1008
+Name: Harman
+Speed Boat Number: SB001
+
+Enter name of passenger Ishita
+Enter 1 to take motor boat or 2 for speed boat 2
+Passenger Id: PS1009
+Name: Ishita
+Speed Boat Number: SB001
+
+Enter name of passenger Jaya
+Enter 1 to take motor boat or 2 for speed boat 2
+No speed boat available.. Wait for next round

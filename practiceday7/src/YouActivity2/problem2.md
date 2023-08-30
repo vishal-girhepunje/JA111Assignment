@@ -1,0 +1,3 @@
+### Question-2
+
+Create a class named “FeeExpenses” that has data members tuitionFee (in INR) and serviceTax (in percentage of tuitionFee) as private members. use parameterized constructor to initialize data members and create a method “getTotalFee()” that calculate final fee based on these parameters. Now create a subclass “FeeWithCess” that inherits “FeeExpenses” and provides an additional data member that is cess (in percentage of tuitionFee) as private member again. Override “getTotalFee()” method that will also add cess to final price.
